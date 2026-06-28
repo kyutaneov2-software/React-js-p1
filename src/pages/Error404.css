@@ -1,0 +1,162 @@
+/* ── Error 404 Page ────────────────────────────────────── */
+.error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 80vh;
+    padding: 2rem;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+
+    max-width: 480px;
+}
+
+/* ── Animated 404 Code ─────────────────────────────────── */
+.error-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    font-family: "Poppins", "Inter", sans-serif;
+    font-size: clamp(5rem, 14vw, 9rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.error-digit {
+    color: white;
+
+    animation: errorFloat 4s ease-in-out infinite;
+}
+
+.error-digit:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.error-digit:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.error-digit:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.error-digit-ghost {
+    color: rgba(255, 255, 255, 0.15);
+
+    position: relative;
+}
+
+.error-digit-ghost::after {
+    content: "";
+    position: absolute;
+    inset: 15% 10%;
+
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
+
+    animation: ghostPulse 3s ease-in-out infinite;
+}
+
+@keyframes errorFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes ghostPulse {
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+/* ── Text Content ──────────────────────────────────────── */
+.error-title {
+    margin: 0;
+
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.03em;
+}
+
+.error-message {
+    margin: -0.5rem 0 0;
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+}
+
+/* ── Button ────────────────────────────────────────────── */
+.error-btn {
+    margin-top: 0.5rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    min-height: 48px;
+    padding: 0.75rem 2rem;
+
+    border-radius: 999px;
+    border: none;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+
+    color: #0a0a0a;
+    background: white;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+
+    cursor: pointer;
+    transition:
+        transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.error-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(255, 255, 255, 0.18);
+    background: #f5f5f5;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .error-page {
+        min-height: 70vh;
+    }
+
+    .error-code {
+        gap: 0.25rem;
+    }
+
+    .error-btn {
+        width: 100%;
+        min-height: 52px;
+    }
+}
